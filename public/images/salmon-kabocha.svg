@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#FFF8ED"/>
+  <circle cx="650" cy="140" r="180" fill="#F2C6A0" fill-opacity="0.35"/>
+  <circle cx="150" cy="470" r="190" fill="#A8B89A" fill-opacity="0.25"/>
+  <ellipse cx="400" cy="440" rx="260" ry="70" fill="#EFE4D2"/>
+  
+  <!-- Glass Jar of Salmon Kabocha Puree -->
+  <rect x="230" y="175" width="180" height="240" rx="32" fill="#FFFFFF" stroke="#5B5147" stroke-width="4"/>
+  <rect x="244" y="220" width="152" height="182" rx="22" fill="#F2B082"/>
+  <rect x="250" y="148" width="140" height="34" rx="10" fill="#A8B89A" stroke="#5B5147" stroke-width="4"/>
+  <rect x="262" y="265" width="116" height="76" rx="12" fill="#FFF8ED" stroke="#5B5147" stroke-width="2.5"/>
+  <text x="320" y="298" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="14" font-weight="700">SALMON &amp; LABU</text>
+  <text x="320" y="320" text-anchor="middle" fill="#7D7063" font-family="sans-serif" font-size="11">Usia 6+ Bulan · Halus</text>
+
+  <!-- Ceramic Small Bowl -->
+  <path d="M430 345C430 415 485 438 555 438C625 438 680 415 680 345H430Z" fill="#A8B89A" stroke="#5B5147" stroke-width="4"/>
+  <ellipse cx="555" cy="345" rx="125" ry="42" fill="#FFF8ED" stroke="#5B5147" stroke-width="4"/>
+  <ellipse cx="555" cy="346" rx="108" ry="32" fill="#F2B082"/>
+  <path d="M495 344C530 330 575 358 615 342" stroke="#FFF8ED" stroke-width="4" stroke-linecap="round"/>
+</svg>

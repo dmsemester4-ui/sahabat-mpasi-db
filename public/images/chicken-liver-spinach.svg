@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#FFF8ED"/>
+  <circle cx="640" cy="160" r="170" fill="#A8B89A" fill-opacity="0.32"/>
+  <circle cx="170" cy="450" r="160" fill="#F2C6A0" fill-opacity="0.32"/>
+  <ellipse cx="400" cy="435" rx="250" ry="68" fill="#EFE3D1"/>
+
+  <!-- Sage Bowl with Iron-Rich Chicken Liver & Spinach Puree -->
+  <path d="M235 320C235 415 308 448 400 448C492 448 565 415 565 320H235Z" fill="#F2C6A0" stroke="#5B5147" stroke-width="4"/>
+  <ellipse cx="400" cy="320" rx="165" ry="56" fill="#FFF8ED" stroke="#5B5147" stroke-width="4"/>
+  <ellipse cx="400" cy="322" rx="146" ry="44" fill="#9CAF8C"/>
+  <path d="M320 320C365 304 425 338 480 318" stroke="#FFF8ED" stroke-width="5" stroke-linecap="round"/>
+  
+  <!-- Spinach Leaf Emblem above bowl -->
+  <path d="M400 160C445 160 470 195 470 235C470 265 435 280 400 280C365 280 330 265 330 235C330 195 355 160 400 160Z" fill="#A8B89A" stroke="#5B5147" stroke-width="3.5"/>
+  <path d="M400 280V185" stroke="#5B5147" stroke-width="3" stroke-linecap="round"/>
+  <path d="M400 235L430 210" stroke="#5B5147" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M400 250L370 225" stroke="#5B5147" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

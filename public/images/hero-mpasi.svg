@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <rect width="1200" height="675" fill="#F7EFE1"/>
+  <!-- Soft organic backdrop shapes -->
+  <circle cx="920" cy="180" r="240" fill="#F2C6A0" fill-opacity="0.35"/>
+  <circle cx="260" cy="520" r="260" fill="#A8B89A" fill-opacity="0.28"/>
+  <rect x="60" y="60" width="1080" height="555" rx="32" fill="#FFF8ED" stroke="#5B5147" stroke-opacity="0.12" stroke-width="2"/>
+  
+  <!-- Linen Table Mat -->
+  <ellipse cx="600" cy="390" rx="410" ry="185" fill="#F2E6D4"/>
+  <ellipse cx="600" cy="390" rx="390" ry="170" fill="none" stroke="#D9C7B0" stroke-width="2" stroke-dasharray="8 8"/>
+
+  <!-- Wooden Baby Spoon -->
+  <g transform="rotate(-24 830 270)">
+    <rect x="815" y="130" width="24" height="230" rx="12" fill="#C89B73" stroke="#5B5147" stroke-width="3"/>
+    <ellipse cx="827" cy="120" rx="36" ry="52" fill="#D9AE88" stroke="#5B5147" stroke-width="3"/>
+    <ellipse cx="827" cy="116" rx="24" ry="34" fill="#F2C6A0"/>
+  </g>
+
+  <!-- Main Ceramic Sage Green MPASI Bowl -->
+  <ellipse cx="560" cy="425" rx="215" ry="62" fill="#7D8F6F" fill-opacity="0.3"/>
+  <path d="M350 320C350 435 435 470 560 470C685 470 770 435 770 320H350Z" fill="#A8B89A" stroke="#5B5147" stroke-width="4"/>
+  <ellipse cx="560" cy="320" rx="210" ry="74" fill="#FFF8ED" stroke="#5B5147" stroke-width="4"/>
+  <!-- Warm Peach/Squash MPASI Puree inside bowl -->
+  <ellipse cx="560" cy="322" rx="188" ry="58" fill="#F2C6A0"/>
+  <path d="M440 315C485 292 545 340 600 312C645 290 680 320 700 315" stroke="#E0A97B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M475 338C520 322 570 352 635 332" stroke="#FFF8ED" stroke-width="5" stroke-linecap="round"/>
+  
+  <!-- Garnish: Broccoli & Salmon Flakes on top of Puree -->
+  <circle cx="535" cy="308" r="14" fill="#7B9669"/>
+  <circle cx="550" cy="304" r="12" fill="#8FAA7B"/>
+  <circle cx="543" cy="318" r="11" fill="#688257"/>
+  <rect x="575" y="305" width="28" height="14" rx="7" fill="#E88D67" transform="rotate(15 575 305)"/>
+  <rect x="595" y="318" width="22" height="11" rx="5.5" fill="#F09F7C" transform="rotate(-10 595 318)"/>
+
+  <!-- Left Ingredient: Fresh Avocado Half -->
+  <g transform="translate(205, 250) rotate(-15)">
+    <ellipse cx="70" cy="85" rx="58" ry="76" fill="#6F855E" stroke="#5B5147" stroke-width="3.5"/>
+    <ellipse cx="70" cy="85" rx="48" ry="65" fill="#DCE6C3"/>
+    <ellipse cx="70" cy="85" rx="38" ry="52" fill="#EBF2D8"/>
+    <circle cx="70" cy="96" r="24" fill="#8C6246" stroke="#5B5147" stroke-width="3"/>
+    <path d="M60 88C64 82 72 82 76 86" stroke="#B5896B" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Right Bottom Ingredient: Glass Jar of Bone Broth (Kaldu MPASI) -->
+  <g transform="translate(815, 305)">
+    <rect x="20" y="25" width="110" height="135" rx="22" fill="#FFF8ED" stroke="#5B5147" stroke-width="3.5"/>
+    <rect x="28" y="52" width="94" height="100" rx="16" fill="#F2C6A0"/>
+    <rect x="32" y="10" width="86" height="20" rx="8" fill="#A8B89A" stroke="#5B5147" stroke-width="3.5"/>
+    <rect x="38" y="75" width="82" height="44" rx="8" fill="#FFF8ED" stroke="#5B5147" stroke-width="2"/>
+    <text x="79" y="96" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="11" font-weight="700">TEMAN MPASI</text>
+    <text x="79" y="110" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="9">100% Organik</text>
+  </g>
+
+  <!-- Gentle Steam Waves -->
+  <path d="M510 230C510 212 526 204 526 186C526 168 510 160 510 142" stroke="#A8B89A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 215C560 197 576 189 576 171C576 153 560 145 560 127" stroke="#F2C6A0" stroke-width="4" stroke-linecap="round"/>
+  <path d="M610 230C610 212 626 204 626 186C626 168 610 160 610 142" stroke="#A8B89A" stroke-width="4" stroke-linecap="round"/>
+</svg>

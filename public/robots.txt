@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow private API endpoints
+Disallow: /api/
+
+# Sitemap otomatis dari semua halaman statis + post Notion
+Sitemap: https://sahabatmpasi.ai.studio/sitemap.xml

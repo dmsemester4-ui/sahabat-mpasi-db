@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#F7EFE1"/>
+  <ellipse cx="400" cy="465" rx="310" ry="60" fill="#E6D8C4"/>
+
+  <!-- 3 Glass Portion Jars -->
+  <!-- Jar 1 -->
+  <g transform="translate(135, 190)">
+    <rect x="10" y="30" width="140" height="220" rx="26" fill="#FFF8ED" stroke="#5B5147" stroke-width="4"/>
+    <rect x="22" y="75" width="116" height="162" rx="18" fill="#F2C6A0"/>
+    <rect x="24" y="6" width="112" height="28" rx="9" fill="#A8B89A" stroke="#5B5147" stroke-width="4"/>
+    <rect x="32" y="115" width="96" height="58" rx="8" fill="#FFF8ED" stroke="#5B5147" stroke-width="2.5"/>
+    <text x="80" y="142" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="13" font-weight="700">PAGI · 08:00</text>
+    <text x="80" y="160" text-anchor="middle" fill="#7D7063" font-family="sans-serif" font-size="11">120 ml · Chiller</text>
+  </g>
+
+  <!-- Jar 2 -->
+  <g transform="translate(320, 165)">
+    <rect x="10" y="30" width="140" height="245" rx="26" fill="#FFF8ED" stroke="#5B5147" stroke-width="4"/>
+    <rect x="22" y="75" width="116" height="187" rx="18" fill="#A8B89A"/>
+    <rect x="24" y="6" width="112" height="28" rx="9" fill="#F2C6A0" stroke="#5B5147" stroke-width="4"/>
+    <rect x="32" y="128" width="96" height="58" rx="8" fill="#FFF8ED" stroke="#5B5147" stroke-width="2.5"/>
+    <text x="80" y="155" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="13" font-weight="700">SIANG · 12:30</text>
+    <text x="80" y="173" text-anchor="middle" fill="#7D7063" font-family="sans-serif" font-size="11">150 ml · Freezer</text>
+  </g>
+
+  <!-- Jar 3 -->
+  <g transform="translate(505, 190)">
+    <rect x="10" y="30" width="140" height="220" rx="26" fill="#FFF8ED" stroke="#5B5147" stroke-width="4"/>
+    <rect x="22" y="75" width="116" height="162" rx="18" fill="#E8B48A"/>
+    <rect x="24" y="6" width="112" height="28" rx="9" fill="#A8B89A" stroke="#5B5147" stroke-width="4"/>
+    <rect x="32" y="115" width="96" height="58" rx="8" fill="#FFF8ED" stroke="#5B5147" stroke-width="2.5"/>
+    <text x="80" y="142" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="13" font-weight="700">SORE · 17:00</text>
+    <text x="80" y="160" text-anchor="middle" fill="#7D7063" font-family="sans-serif" font-size="11">120 ml · Organik</text>
+  </g>
+</svg>

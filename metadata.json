@@ -1,0 +1,6 @@
+{
+  "name": "Teman MPASI — Produk & Panduan MPASI Bayi Bergizi",
+  "description": "Kremesan & abon MPASI organik praktis kaya protein hewani dan panduan lengkap resep, tekstur, serta menu MPASI bergizi usia 6 bulan hingga 4 tahun.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

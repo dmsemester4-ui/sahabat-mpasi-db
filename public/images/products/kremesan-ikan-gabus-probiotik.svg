@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="bg-gabus" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="100%" stop-color="#F7EFE1"/>
+    </radialGradient>
+    <linearGradient id="lid-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F3F4F6"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E5E7EB"/>
+    </linearGradient>
+    <linearGradient id="label-gabus" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="crumb-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-15%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#5B5147" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" rx="36" fill="url(#bg-gabus)"/>
+  <circle cx="400" cy="410" r="280" fill="#DBEAFE" opacity="0.55"/>
+
+  <g transform="translate(400, 68)" text-anchor="middle" font-family="'Nunito', 'Plus Jakarta Sans', sans-serif">
+    <rect x="-135" y="-30" width="270" height="44" rx="22" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="2"/>
+    <text y="-2" font-size="22" font-weight="800" fill="#5B5147">Sahabat <tspan fill="#2563EB">MPASI</tspan></text>
+    <text y="46" font-size="28" font-weight="800" fill="#5B5147">Kremesan Ikan Gabus Probiotik</text>
+    <text y="74" font-size="16" font-weight="700" fill="#1D4ED8">Double Prohe · Tinggi Albumin, Omega 3 &amp; Telur Bebek Free-Range</text>
+  </g>
+
+  <ellipse cx="400" cy="675" rx="250" ry="28" fill="#5B5147" opacity="0.12"/>
+
+  <!-- Left Main Jar -->
+  <g transform="translate(175, 195)" filter="url(#soft-shadow)">
+    <rect x="20" y="62" width="240" height="390" rx="38" fill="#FEF3C7" stroke="#FDE68A" stroke-width="3"/>
+    <rect x="26" y="75" width="228" height="368" rx="32" fill="url(#crumb-grad)" opacity="0.88"/>
+    <rect x="38" y="12" width="204" height="54" rx="14" fill="url(#lid-grad)" stroke="#D1D5DB" stroke-width="2"/>
+    <rect x="20" y="150" width="240" height="235" fill="url(#label-gabus)"/>
+    <rect x="20" y="150" width="240" height="8" fill="#FDE047"/>
+    <rect x="20" y="377" width="240" height="8" fill="#FDE047"/>
+
+    <g transform="translate(140, 184)" text-anchor="middle" font-family="'Nunito', sans-serif">
+      <rect x="-68" y="-18" width="136" height="24" rx="12" fill="#FFFFFF"/>
+      <text y="-2" font-size="12" font-weight="800" fill="#1D4ED8">SAHABAT MPASI</text>
+      <text y="28" font-size="24" font-weight="800" fill="#FFFFFF">Kremesan</text>
+      <text y="52" font-size="22" font-weight="800" fill="#FDE047">Double Prohe</text>
+      <text y="74" font-size="12" font-weight="700" fill="#DBEAFE">Ikan Gabus Probiotik + Telur Bebek</text>
+
+      <rect x="-96" y="90" width="192" height="44" rx="12" fill="#FFFFFF" opacity="0.96"/>
+      <text x="0" y="109" font-size="11.5" font-weight="800" fill="#1D4ED8">KREMESAN IKAN GABUS PROBIOTIK</text>
+      <text x="0" y="126" font-size="11" font-weight="700" fill="#3B5E38">Tinggi Albumin, Protein &amp; Imunitas</text>
+
+      <rect x="-92" y="144" width="84" height="26" rx="8" fill="#FEF08A"/>
+      <text x="-50" y="161" font-size="12" font-weight="800" fill="#713F12">Netto: 125gr</text>
+      <rect x="8" y="144" width="84" height="26" rx="8" fill="#DCFCE7"/>
+      <text x="50" y="161" font-size="12" font-weight="800" fill="#166534">Halal · 6+ Bln</text>
+    </g>
+    <rect x="34" y="75" width="18" height="360" rx="9" fill="#FFFFFF" opacity="0.35"/>
+  </g>
+
+  <!-- Right Jar -->
+  <g transform="translate(435, 245)" filter="url(#soft-shadow)">
+    <rect x="16" y="54" width="196" height="340" rx="32" fill="#FEF3C7" stroke="#FDE68A" stroke-width="3"/>
+    <rect x="22" y="64" width="184" height="320" rx="28" fill="url(#crumb-grad)" opacity="0.9"/>
+    <rect x="32" y="10" width="164" height="46" rx="12" fill="url(#lid-grad)" stroke="#D1D5DB" stroke-width="2"/>
+    <rect x="16" y="135" width="196" height="195" fill="url(#label-gabus)"/>
+    <rect x="16" y="135" width="196" height="6" fill="#FDE047"/>
+    <rect x="16" y="324" width="196" height="6" fill="#FDE047"/>
+    <g transform="translate(114, 168)" text-anchor="middle" font-family="'Nunito', sans-serif">
+      <text y="0" font-size="11" font-weight="800" fill="#FDE047">SAHABAT MPASI</text>
+      <text y="24" font-size="20" font-weight="800" fill="#FFFFFF">Kremesan</text>
+      <text y="44" font-size="18" font-weight="800" fill="#FDE047">Double Prohe</text>
+      <rect x="-82" y="60" width="164" height="38" rx="10" fill="#FFFFFF"/>
+      <text x="0" y="77" font-size="10.5" font-weight="800" fill="#1D4ED8">IKAN GABUS PROBIOTIK</text>
+      <text x="0" y="91" font-size="10" font-weight="700" fill="#5B5147">Kemasan Travel 80gr</text>
+      <rect x="-55" y="108" width="110" height="24" rx="8" fill="#FEF08A"/>
+      <text x="0" y="124" font-size="11" font-weight="800" fill="#713F12">Netto: 80gr</text>
+    </g>
+    <rect x="28" y="66" width="14" height="310" rx="7" fill="#FFFFFF" opacity="0.32"/>
+  </g>
+
+  <!-- Wooden Spoon -->
+  <g transform="translate(390, 595)" filter="url(#soft-shadow)">
+    <path d="M120,38 L310,12 C322,10 328,26 314,32 L125,64 Z" fill="#B45309"/>
+    <ellipse cx="95" cy="46" rx="88" ry="36" fill="#92400E"/>
+    <ellipse cx="95" cy="40" rx="82" ry="30" fill="url(#crumb-grad)"/>
+    <g fill="#FEF08A">
+      <circle cx="55" cy="36" r="7"/><circle cx="75" cy="28" r="9"/><circle cx="98" cy="34" r="10"/><circle cx="122" cy="29" r="8"/><circle cx="142" cy="40" r="7"/>
+    </g>
+  </g>
+
+  <g transform="translate(400, 738)" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800">
+    <rect x="-340" y="-22" width="210" height="36" rx="18" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="-235" y="1" fill="#3B5E38">✓ Kaya Albumin &amp; Protein</text>
+    <rect x="-110" y="-22" width="220" height="36" rx="18" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="0" y="1" fill="#1D4ED8">✓ Digoreng Minyak Kelapa</text>
+    <rect x="130" y="-22" width="210" height="36" rx="18" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <text x="235" y="1" fill="#5B5147">✓ Tanpa Pengawet &amp; MSG</text>
+  </g>
+</svg>

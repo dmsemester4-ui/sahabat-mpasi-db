@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#FFF8ED"/>
+  <!-- Divided Baby Plate -->
+  <circle cx="400" cy="300" r="220" fill="#F2E5D3" stroke="#5B5147" stroke-width="4"/>
+  <circle cx="400" cy="300" r="195" fill="#FFF8ED" stroke="#5B5147" stroke-width="3"/>
+  <line x1="400" y1="105" x2="400" y2="495" stroke="#5B5147" stroke-width="3"/>
+  <line x1="205" y1="300" x2="595" y2="300" stroke="#5B5147" stroke-width="3"/>
+
+  <!-- Quadrant 1: Karbohidrat -->
+  <circle cx="315" cy="215" r="48" fill="#F2C6A0"/>
+  <text x="315" y="220" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="14" font-weight="700">Karbohidrat</text>
+
+  <!-- Quadrant 2: Protein Hewani -->
+  <circle cx="485" cy="215" r="48" fill="#E39A78"/>
+  <text x="485" y="220" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="14" font-weight="700">Prohe Utama</text>
+
+  <!-- Quadrant 3: Sayur & Prona -->
+  <circle cx="315" cy="385" r="48" fill="#A8B89A"/>
+  <text x="315" y="390" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="14" font-weight="700">Sayur &amp; Prona</text>
+
+  <!-- Quadrant 4: Lemak Tambahan -->
+  <circle cx="485" cy="385" r="48" fill="#E8D29B"/>
+  <text x="485" y="390" text-anchor="middle" fill="#5B5147" font-family="sans-serif" font-size="14" font-weight="700">Lemak Sehat</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#F8F1E5"/>
+  <circle cx="180" cy="140" r="160" fill="#A8B89A" fill-opacity="0.28"/>
+  <circle cx="640" cy="460" r="170" fill="#F2C6A0" fill-opacity="0.35"/>
+  <ellipse cx="400" cy="430" rx="250" ry="75" fill="#EBDCCB"/>
+
+  <!-- Ceramic Bowl of Bubur Tim Daging Sapi -->
+  <path d="M220 310C220 415 300 450 400 450C500 450 580 415 580 310H220Z" fill="#5B5147" stroke="#5B5147" stroke-width="4"/>
+  <ellipse cx="400" cy="310" rx="180" ry="62" fill="#FFF8ED" stroke="#5B5147" stroke-width="4"/>
+  <ellipse cx="400" cy="312" rx="160" ry="48" fill="#F2DEC4"/>
+  
+  <!-- Minced Beef, Carrot & Broccoli bits -->
+  <circle cx="350" cy="305" r="10" fill="#9E5B42"/>
+  <circle cx="385" cy="318" r="12" fill="#8B4D36"/>
+  <circle cx="430" cy="300" r="11" fill="#9E5B42"/>
+  <circle cx="415" cy="322" r="8" fill="#E6884F"/>
+  <circle cx="365" cy="325" r="8" fill="#E6884F"/>
+  <circle cx="455" cy="315" r="10" fill="#7D9668"/>
+  <circle cx="330" cy="316" r="9" fill="#7D9668"/>
+
+  <!-- Steam -->
+  <path d="M360 225C360 205 375 195 375 175" stroke="#A8B89A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M405 210C405 190 420 180 420 160" stroke="#F2C6A0" stroke-width="4" stroke-linecap="round"/>
+  <path d="M450 225C450 205 465 195 465 175" stroke="#A8B89A" stroke-width="4" stroke-linecap="round"/>
+</svg>
