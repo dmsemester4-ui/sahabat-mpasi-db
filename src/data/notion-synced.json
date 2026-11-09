@@ -1,0 +1,77 @@
+[
+  {
+    "id": "3ffe76e0-8675-808a-8f9b-d31b948f829e",
+    "title": "Resep MPASI Bayi 6 Bulan Pertama: Puree Pepaya Manis Alami & Lembut",
+    "slug": "resep-mpasi-puree-pepaya-manis-6-bulan",
+    "status": "Published",
+    "date": "2026-10-20",
+    "updatedAt": "2026-10-20",
+    "author": "Tim Nutrisi Sahabat MPASI",
+    "tags": [
+      "Resep MPASI Bayi 6 Bulan dan Menu MPASI Bergizi",
+      "Resep MPASI Bayi 6 Bulan",
+      "Menu MPASI Bergizi"
+    ],
+    "excerpt": "Cara mudah membuat puree buah pepaya matang yang kaya serat alami, vitamin A, dan vitamin C untuk melancarkan pencernaan bayi usia 6 bulan.",
+    "cover": "https://prod-files-secure.s3.us-west-2.amazonaws.com/affe76e0-8675-81ef-a2ba-000343376d43/f6607c15-17c5-422d-8468-70296398946c/_DSF5779.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UAXVVTIH%2F20261109%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20261109T104955Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFsaCXVzLXdlc3QtMiJGMEQCIEzFITlhWu7V1YLVCjN6ctiaCNzT9aUpxarYxF3pnrBZAiBtpVJLCYGoh5PxlJotq9PUak%2FAYa9hLS6r%2FjWAD7I6Air%2FAwgkEAAaDDYzNzQyMzE4MzgwNSIMb7sAQ6baALh3Iy85KtwDhEpJN1oaMzJya1unaBbKPLFMN8hhEhYAHNJuGJh58UHX3hRd0zI9aga3FnCydJg3KnWs84QpOrTs88O%2BeJy9ytuWWpmCCzr%2B526yhuNs5MQ6iGO8E%2FtngbxW4eV5tMFB%2B%2FfugBCs1oyrEh%2F878f%2BIMrLH1UYN6k6KgibtSeQGfFfPrwvDzVhI4ilAutmN74T3YLgKTShkGBv5kvcWHwbhaCiB%2BqnIv5LC9R7rVl8pgRMNutkJX%2FOj%2FUPa3dGVomIiu5UD6YGhDPHfycztPgQcEu6sXWO5Ltxa9YeuJfDDKKU03IJldFN%2BiaUpGRKOIMBJuSVFlcCBNCit%2Funi85qm2MVgfMDaH0QBFElyKfvW6qtwWMPLQ28ZFWq4hyy1cxqF3pLeHQgZDtjXs2AG1xTonKkgsTHvH%2FIoQkKnNOUtK0mfH%2FhEjgulqmn2j87rUkbMGGanxddoGIkZ8IdmzJ08zUtAPBGzAuy5Nj%2BZ8tSsD52pY1xo1lZi%2BAqQoFiNIdL3s1jbYiAhFiJD1bXgK91RESJFps0dRlTlCBPaPd%2BXCChaaA7IcfmB2VcXANNtmXObPZQ9wRwWi%2FL2o5Ivgxs%2BDWK9pUEmxp7nANjv7RHiOKohGXofaQ6d4QeKdMwscTG1wY6pgEhLs5HTUsqXSOf%2BvOvo%2BUiYYfgooOszE2Lu0gdpYY7ODgajnX6ODruUmhCQFC%2BnDTq5wVFnoal71qjC0VkJJndRM4S%2BtjTWTvuyG0kOIaSnDNJYd%2FnWTOvU7LTNprvmPW2hBRn%2Fol2Hp3w0lODyjWt2wcNZcA2s7rcjnTrp2ePy7%2FGkwy0sDQpuNB%2FA86TBe52lZfyInWtP4kDZkaZqBY7UsDaJ80E&X-Amz-Signature=d1dae794918d5a764190cac854549bc3e0bc57b48e0f97480b536423881730fe&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+    "readingTimeMinutes": 2,
+    "blocks": [
+      {
+        "id": "3ffe76e0-8675-8084-99a4-ff0af044522a",
+        "type": "paragraph",
+        "text": "Buah pepaya merupakan salah satu pilihan menu selingan (snack) MPASI yang sangat ideal untuk bayi usia 6 bulan. Teksturnya yang lembut serta rasa manisnya yang alami sangat disukai si Kecil, sekaligus membantu melancarkan sistem pencernaan bayi yang baru beradaptasi dengan makanan padat."
+      },
+      {
+        "id": "3ffe76e0-8675-80cd-a144-d94add87941e",
+        "type": "paragraph",
+        "text": "Kandungan Nutrisi Pepaya untuk Bayi:"
+      },
+      {
+        "id": "3ffe76e0-8675-80be-bc11-edc2d5a9bbaa",
+        "type": "bulleted_list",
+        "items": [
+          "Vitamin A dan Beta-Karoten tinggi untuk kesehatan mata bayi.",
+          "Vitamin C untuk memperkuat daya tahan tubuh dan membantu penyerapan zat besi.",
+          "Enzim Papain alami dan serat lembut untuk mencegah sembelit pada awal masa MPASI."
+        ]
+      },
+      {
+        "id": "3ffe76e0-8675-80ba-bcff-d02f4f5efa7f",
+        "type": "paragraph",
+        "text": "Bahan yang Diperlukan:"
+      },
+      {
+        "id": "3ffe76e0-8675-8066-8783-c83cf8af2e92",
+        "type": "bulleted_list",
+        "items": [
+          "60 gram buah pepaya matang sempurna (pilih pepaya California atau jenis yang manis dan berdaging tebal).",
+          "1-2 sendok makan ASI atau susu formula perah (opsional, untuk mengatur kekentalan)."
+        ]
+      },
+      {
+        "id": "3ffe76e0-8675-8068-80df-e973afc6238c",
+        "type": "paragraph",
+        "text": "Langkah-Langkah Pembuatan:"
+      },
+      {
+        "id": "3ffe76e0-8675-80da-b3e0-fcf734641a5d",
+        "type": "numbered_list",
+        "items": [
+          "Cuci tangan hingga bersih dan pastikan seluruh peralatan makan bayi steril.",
+          "Kupas kulit pepaya dan buang seluruh bijinya hingga bersih.",
+          "Potong daging buah pepaya menjadi potongan kecil.",
+          "Lumatkan pepaya menggunakan saringan kawat (wire strainer) atau haluskan dengan blender/food processor.",
+          "Kerok bagian bawah saringan untuk mengambil puree yang lembut.",
+          "Tambahkan 1 sendok makan ASI untuk menyesuaikan kekentalan dan memberikan rasa yang sudah akrab bagi bayi.",
+          "Sajikan segera selagi segar untuk camilan sore si Kecil."
+        ]
+      },
+      {
+        "id": "3ffe76e0-8675-802e-9a76-e69c12822eb0",
+        "type": "paragraph",
+        "text": "Tips dari Teman MPASI:\n\"Untuk pengenalan buah pertama kali, cukup berikan 1 hingga 2 sendok teh terlebih dahulu untuk melihat respon penerimaan lidah si Kecil.\""
+      }
+    ],
+    "isFromNotion": true
+  }
+]

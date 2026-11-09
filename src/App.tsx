@@ -23,6 +23,7 @@ import {
   type NotionPost,
 } from './lib/notion';
 import { MPASI_PRODUCTS, type EtalaseProduct } from './data/products';
+import syncedNotionPosts from './data/notion-synced.json';
 import DynamicSEO, {
   type BreadcrumbItem,
 } from './components/DynamicSEO';
@@ -119,9 +120,11 @@ export default function App() {
     useState<EtalaseProduct | null>(null);
   const [activeModalImageIdx, setActiveModalImageIdx] = useState<number>(0);
 
-  // Artikel Blog State
-  const [posts, setPosts] = useState<NotionPost[]>([]);
-  const [isLoadingPosts, setIsLoadingPosts] = useState<boolean>(true);
+  // Artikel Blog State (Langsung terisi dari Notion yang tersinkronisasi + Live Fetch API)
+  const [posts, setPosts] = useState<NotionPost[]>(
+    (syncedNotionPosts as NotionPost[]) || []
+  );
+  const [isLoadingPosts, setIsLoadingPosts] = useState<boolean>(false);
 
   // Blog Filter, Search & Pagination State (9 artikel per halaman)
   const [selectedTopic, setSelectedTopic] = useState<string>('Semua Topik');
@@ -167,18 +170,22 @@ export default function App() {
     loadEtalase();
   }, []);
 
-  // Load Notion Blog Posts
+  // Load Live Notion Blog Posts
   useEffect(() => {
     const loadPosts = async () => {
-      setIsLoadingPosts(true);
+      if (posts.length === 0) {
+        setIsLoadingPosts(true);
+      }
       try {
         const res = await fetch(`/api/notion/posts?t=${Date.now()}`);
-        const data = await res.json();
-        if (Array.isArray(data.posts)) {
-          setPosts(data.posts);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data.posts) && data.posts.length > 0) {
+            setPosts(data.posts);
+          }
         }
       } catch {
-        setPosts([]);
+        // Pertahankan artikel Notion yang sudah disinkronkan
       } finally {
         setIsLoadingPosts(false);
       }
