@@ -5,7 +5,8 @@
  * Menangani seluruh route:
  *   - GET /api/notion/posts
  *   - GET /api/notion/posts/:slug
- *   - GET /api/etalase
+ *   - GET /api/etalase (Otomatis sinkronisasi harga & promo live dari Tokopedia/TikTok Shop)
+ *   - POST /api/etalase/sync
  */
 
 import fs from 'fs';
@@ -14,6 +15,11 @@ import path from 'path';
 const DEFAULT_NOTION_TOKEN =
   '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';
 const DEFAULT_NOTION_DATABASE_ID = '3ffe76e0-8675-8092-92d1-d8bc37d181bc';
+
+const WHATSAPP_BOT_HEADERS = {
+  'User-Agent': 'WhatsApp/2.23.20.0',
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+};
 
 function slugify(text) {
   return String(text || '')
@@ -24,6 +30,24 @@ function slugify(text) {
     .replace(/[^a-z0-9\s-]/g, '')
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function categorizeTitle(title) {
+  const lower = String(title || '').toLowerCase();
+  if (lower.includes('abon')) return 'Abon Lauk MPASI';
+  if (
+    lower.includes('ikan') ||
+    lower.includes('teri') ||
+    lower.includes('kembung') ||
+    lower.includes('lele') ||
+    lower.includes('gabus') ||
+    lower.includes('tenggiri') ||
+    lower.includes('salmon') ||
+    lower.includes('udang')
+  ) {
+    return 'Kremesan Ikan & Laut';
+  }
+  return 'Kremesan Protein Darat';
 }
 
 function extractPlainText(richTextArray) {
@@ -249,93 +273,173 @@ async function fetchNotionPosts(customToken, customDatabaseId) {
   }
 }
 
-async function fetchEtalaseProducts() {
-  const supabaseUrl = (
-    process.env.SUPABASE_URL ||
-    process.env.VITE_SUPABASE_URL ||
-    ''
-  )
-    .trim()
-    .replace(/\/$/, '');
-  const supabaseKey = (
-    process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    process.env.SUPABASE_ANON_KEY ||
-    process.env.VITE_SUPABASE_ANON_KEY ||
-    ''
-  ).trim();
+function parseStorePageCards(html) {
+  const discoveredCards = [];
+  const seenSlugs = new Set();
+  const anchorRegex =
+    /<a[^>]+href="(https:\/\/www\.tokopedia\.com\/sahabat-mpasi\/([^"?/]+))[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
 
-  if (supabaseUrl && supabaseKey) {
-    try {
-      const res = await fetch(
-        `${supabaseUrl}/rest/v1/etalase_products?select=*&order=updated_at.desc`,
-        {
-          headers: {
-            apikey: supabaseKey,
-            Authorization: `Bearer ${supabaseKey}`,
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      if (res.ok) {
-        const rows = await res.json();
-        if (Array.isArray(rows) && rows.length > 0) {
-          return {
-            products: rows.map((row) => ({
-              id: row.id || row.slug,
-              slug: row.slug,
-              title: row.title,
-              category: row.category || 'Kremesan Protein Darat',
-              recommendedAge: row.recommended_age || 'Balita 11+ Bulan',
-              weightLabel: row.weight_label || '80gr & 125gr',
-              priceIdr: Number(row.price_idr) || 46900,
-              priceText:
-                row.price_text ||
-                `Rp${(Number(row.price_idr) || 46900).toLocaleString('id-ID')}`,
-              originalPriceIdr: Number(row.original_price_idr) || 87000,
-              originalPriceText:
-                row.original_price_text ||
-                `Rp${(Number(row.original_price_idr) || 87000).toLocaleString('id-ID')}`,
-              discountPercent: Number(row.discount_percent) || 46,
-              promoText: row.promo_text || 'Gajian Sale · Bisa COD',
-              promoBadges: Array.isArray(row.promo_badges)
-                ? row.promo_badges
-                : ['Gajian Sale', 'Bisa COD', 'Gratis Ongkir Xtra'],
-              soldText: row.sold_text || 'Terlaris',
-              rating: Number(row.rating) || 5.0,
-              reviewCount: Number(row.review_count) || 12,
-              image: row.image,
-              gallery: Array.isArray(row.gallery) ? row.gallery : [row.image],
-              description: row.description || row.title,
-              tokopediaUrl:
-                row.tokopedia_url || 'https://www.tokopedia.com/sahabat-mpasi',
-              tiktokShopUrl:
-                row.tiktok_shop_url || 'https://www.tiktok.com/@rtk.ruangtumbuh',
-              storeName: row.store_name || 'Sahabat MPASI',
-              storeLocation: row.store_location || 'Kab. Boyolali',
-              inStock: row.in_stock !== false,
-              syncedAt: row.synced_at || new Date().toISOString(),
-            })),
-            storageProvider: 'supabase',
-          };
-        }
-      }
-    } catch {
-      // fallback
+  while ((m = anchorRegex.exec(html)) !== null) {
+    const fullUrl = m[1];
+    const slug = m[2];
+    if (slug === 'page' || slug.startsWith('page/') || seenSlugs.has(slug)) {
+      continue;
     }
+    const body = m[3];
+    const texts = [...body.matchAll(/>([^<]+)</g)]
+      .map((x) => x[1].replace(/&amp;/g, '&').trim())
+      .filter(Boolean);
+
+    if (texts.length === 0) continue;
+
+    const discountMatch = texts.find((t) => /^\d+%$/.test(t));
+    const rpPrices = texts.filter((t) => /^Rp[\d.]+$/i.test(t));
+    const soldMatch = texts.find((t) => /terjual/i.test(t));
+    const codMatch = texts.find((t) => /COD|Hemat|Bonus|Diskon/i.test(t));
+
+    const titleCandidate = texts.find(
+      (t) =>
+        t.length > 10 &&
+        !/^Rp[\d.]+$/i.test(t) &&
+        !/^\d+%$/.test(t) &&
+        !/terjual/i.test(t) &&
+        !/^Bisa COD$/i.test(t)
+    );
+
+    if (!titleCandidate) continue;
+
+    const priceIdr =
+      parseInt((rpPrices[0] || '40900').replace(/[^0-9]/g, ''), 10) || 40900;
+    const originalPriceIdr =
+      parseInt(
+        (
+          rpPrices[1] ||
+          (titleCandidate.toLowerCase().includes('abon') ? '92000' : '87000')
+        ).replace(/[^0-9]/g, ''),
+        10
+      ) || 87000;
+    const discountPercent = discountMatch
+      ? parseInt(discountMatch.replace(/[^0-9]/g, ''), 10)
+      : Math.max(
+          1,
+          Math.round(((originalPriceIdr - priceIdr) / originalPriceIdr) * 100)
+        );
+
+    const imgMatch = body.match(
+      /https:\/\/p16-oec-sg\.ibyteimg\.com\/[^"'\s>]+/i
+    )?.[0];
+
+    seenSlugs.add(slug);
+    discoveredCards.push({
+      slug,
+      url: fullUrl,
+      title: titleCandidate,
+      priceIdr,
+      originalPriceIdr,
+      discountPercent,
+      promoText: codMatch
+        ? `Diskon ${discountPercent}% · ${codMatch}`
+        : `Diskon ${discountPercent}% · Bisa COD`,
+      soldText: soldMatch || 'Terlaris',
+      cardImage: imgMatch
+        ? imgMatch.replace(/resize-jpeg:\d+:0/i, 'resize-jpeg:700:0')
+        : undefined,
+    });
   }
 
+  return discoveredCards;
+}
+
+async function fetchEtalaseProducts() {
+  let baseProducts = [];
   try {
     const syncPath = path.resolve(process.cwd(), 'src/data/etalase-synced.json');
     if (fs.existsSync(syncPath)) {
       const parsed = JSON.parse(fs.readFileSync(syncPath, 'utf-8'));
       if (Array.isArray(parsed)) {
-        return { products: parsed, storageProvider: 'local-json' };
+        baseProducts = parsed;
       }
     }
   } catch {
     // ignore
   }
-  return { products: [], storageProvider: 'local-json' };
+
+  // Live sync harga & produk terbaru dari Tokopedia / TikTok Shop Sahabat MPASI
+  try {
+    const storeRes = await fetch('https://www.tokopedia.com/sahabat-mpasi', {
+      headers: WHATSAPP_BOT_HEADERS,
+    });
+    if (storeRes.ok) {
+      const html = await storeRes.text();
+      const liveCards = parseStorePageCards(html);
+      if (liveCards.length > 0) {
+        const existingBySlug = new Map(baseProducts.map((p) => [p.slug, p]));
+        const nowIso = new Date().toISOString();
+        const updatedProducts = [];
+
+        for (const card of liveCards) {
+          const prev = existingBySlug.get(card.slug);
+          if (prev) {
+            updatedProducts.push({
+              ...prev,
+              title: card.title || prev.title,
+              category: categorizeTitle(card.title || prev.title),
+              priceIdr: card.priceIdr,
+              priceText: `Rp${card.priceIdr.toLocaleString('id-ID')}`,
+              originalPriceIdr: card.originalPriceIdr,
+              originalPriceText: `Rp${card.originalPriceIdr.toLocaleString('id-ID')}`,
+              discountPercent: card.discountPercent,
+              promoText: card.promoText,
+              promoBadges: ['Promo Spesial', 'Bisa COD', 'Gratis Ongkir Xtra'],
+              soldText: card.soldText || prev.soldText,
+              image: card.cardImage || prev.image,
+              tokopediaUrl: card.url,
+              tiktokShopUrl: 'https://www.tiktok.com/@rtk.ruangtumbuh',
+              syncedAt: nowIso,
+            });
+          } else if (card.cardImage) {
+            const isAbon = card.title.toLowerCase().includes('abon');
+            updatedProducts.push({
+              id: card.slug,
+              slug: card.slug,
+              title: card.title,
+              category: categorizeTitle(card.title),
+              recommendedAge: 'Balita 11+ Bulan',
+              weightLabel: isAbon ? '50gr & 100gr' : '80gr & 125gr',
+              priceIdr: card.priceIdr,
+              priceText: `Rp${card.priceIdr.toLocaleString('id-ID')}`,
+              originalPriceIdr: card.originalPriceIdr,
+              originalPriceText: `Rp${card.originalPriceIdr.toLocaleString('id-ID')}`,
+              discountPercent: card.discountPercent,
+              promoText: card.promoText,
+              promoBadges: ['Promo Spesial', 'Bisa COD', 'Gratis Ongkir Xtra'],
+              soldText: card.soldText || 'Terlaris',
+              rating: 5.0,
+              reviewCount: 12,
+              image: card.cardImage,
+              gallery: [card.cardImage],
+              description: `${card.title} — Lauk pendamping MPASI gurih, renyah, dan kaya protein hewani tanpa pengawet dan bebas MSG dari Sahabat MPASI.`,
+              tokopediaUrl: card.url,
+              tiktokShopUrl: 'https://www.tiktok.com/@rtk.ruangtumbuh',
+              storeName: 'Sahabat MPASI',
+              storeLocation: 'Kab. Boyolali',
+              inStock: true,
+              syncedAt: nowIso,
+            });
+          }
+        }
+
+        if (updatedProducts.length > 0) {
+          baseProducts = updatedProducts;
+        }
+      }
+    }
+  } catch {
+    // Gunakan baseProducts jika koneksi live sedang sibuk
+  }
+
+  return { products: baseProducts, storageProvider: 'live-marketplace' };
 }
 
 export default async function handler(req, res) {
@@ -377,7 +481,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  if (urlPath === '/api/etalase') {
+  if (urlPath === '/api/etalase' || urlPath === '/api/etalase/sync') {
     const { products, storageProvider } = await fetchEtalaseProducts();
     res.status(200).json({
       products,

@@ -944,59 +944,105 @@ export default function App() {
         {route.name === 'home' && (
           <>
             {/* HERO SECTION */}
-            <section className="relative overflow-hidden py-6 sm:py-10 lg:py-16">
+            <section className="relative overflow-hidden py-6 sm:py-10 lg:py-14">
               <div className="mx-auto max-w-7xl px-3.5 sm:px-6">
-                <div className="grid grid-cols-1 items-center gap-6 sm:gap-10 lg:grid-cols-12">
-                  <div className="flex flex-col justify-center space-y-3.5 sm:space-y-5 lg:col-span-7">
-                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-bold text-[#00AA5B] dark:text-[#4ADE80]">
-                      <span className="inline-flex items-center gap-1 rounded-md bg-[#00AA5B]/10 dark:bg-[#00AA5B]/20 px-2 py-0.5 sm:px-2.5 sm:py-1">
-                        <CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-                        <span>100% Alami</span>
-                      </span>
-                      <span aria-hidden="true">·</span>
-                      <span className="text-[#5B5147] dark:text-[#F2C6A0]">
-                        Toko Resmi Sahabat MPASI
-                      </span>
-                      <span aria-hidden="true">·</span>
-                      <span className="text-[#3B5E38] dark:text-[#A8B89A]">
-                        Usia 11+ Bulan
-                      </span>
+                <div className="grid grid-cols-1 items-stretch gap-6 sm:gap-8 lg:grid-cols-12">
+                  {/* Left Hero Column: Raised to align top & bottom with Right Product Showcase */}
+                  <div className="flex flex-col justify-between space-y-4 sm:space-y-5 lg:col-span-7">
+                    <div className="space-y-3 sm:space-y-4">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-bold text-[#00AA5B] dark:text-[#4ADE80]">
+                        <span className="inline-flex items-center gap-1 rounded-md bg-[#00AA5B]/10 dark:bg-[#00AA5B]/20 px-2 py-0.5 sm:px-2.5 sm:py-1">
+                          <CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                          <span>100% Alami</span>
+                        </span>
+                        <span aria-hidden="true">·</span>
+                        <span className="text-[#5B5147] dark:text-[#F2C6A0]">
+                          Toko Resmi Sahabat MPASI
+                        </span>
+                        <span aria-hidden="true">·</span>
+                        <span className="text-[#3B5E38] dark:text-[#A8B89A]">
+                          Usia 11+ Bulan
+                        </span>
+                      </div>
+
+                      <h1 className="font-display text-xl sm:text-3xl lg:text-[42px] font-extrabold text-[#5B5147] dark:text-[#FFF8ED] leading-snug sm:leading-[1.16]">
+                        Sahabat MPASI: Kremesan Probiotik &amp; Abon Lauk Pendamping Anak
+                      </h1>
+
+                      <p className="max-w-2xl text-xs sm:text-base font-normal leading-relaxed text-[#5B5147]/90 dark:text-[#FFF8ED]/85">
+                        Lauk pendamping makan praktis yang gurih, renyah, dan kaya nutrisi untuk si Kecil. Dibuat dari protein hewani pilihan, santan kelapa murni, rempah alami, dan garam natural <strong className="font-bold">tanpa pengawet, tanpa pewarna, dan bebas MSG</strong> untuk membantu mengatasi anak GTM (usia 11+ bulan).
+                      </p>
+
+                      <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-1">
+                        <a
+                          href={tiktokShopUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-lg sm:rounded-xl bg-[#111111] hover:bg-black text-white px-3.5 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm font-bold shadow-2xs inline-flex items-center gap-1.5 sm:gap-2 hover:opacity-95 transition-opacity whitespace-nowrap"
+                        >
+                          <TikTokIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#25F4EE]" />
+                          <span>TikTok Shop Sahabat MPASI</span>
+                        </a>
+
+                        <a
+                          href={tokopediaStoreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-lg sm:rounded-xl bg-[#00AA5B] hover:bg-[#00924E] text-white px-3.5 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm font-bold shadow-2xs inline-flex items-center gap-1.5 sm:gap-2 transition-colors whitespace-nowrap"
+                        >
+                          <TokopediaIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white" />
+                          <span>Tokopedia Sahabat MPASI</span>
+                        </a>
+                      </div>
                     </div>
 
-                    <h1 className="font-display text-xl sm:text-3xl lg:text-5xl font-extrabold text-[#5B5147] dark:text-[#FFF8ED] leading-snug sm:leading-[1.18]">
-                      Sahabat MPASI: Kremesan Probiotik &amp; Abon Lauk Pendamping Anak
-                    </h1>
-
-                    <p className="max-w-2xl text-xs sm:text-base lg:text-lg font-normal leading-relaxed text-[#5B5147]/90 dark:text-[#FFF8ED]/85">
-                      Lauk pendamping makan praktis yang gurih, renyah, dan kaya nutrisi untuk si Kecil. Dibuat dari protein hewani pilihan, santan kelapa murni, rempah alami, dan garam natural <strong className="font-bold">tanpa pengawet, tanpa pewarna, dan bebas MSG</strong> untuk membantu mengatasi anak GTM (usia 11+ bulan).
-                    </p>
-
-                    <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-1 sm:pt-2">
-                      <a
-                        href={tiktokShopUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-lg sm:rounded-xl bg-[#111111] hover:bg-black text-white px-3.5 py-2.5 sm:px-5 sm:py-3.5 text-xs sm:text-sm font-bold shadow-2xs inline-flex items-center gap-1.5 sm:gap-2 hover:opacity-95 transition-opacity whitespace-nowrap"
-                      >
-                        <TikTokIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#25F4EE]" />
-                        <span>TikTok Shop Sahabat MPASI</span>
-                      </a>
-
-                      <a
-                        href={tokopediaStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-lg sm:rounded-xl bg-[#00AA5B] hover:bg-[#00924E] text-white px-3.5 py-2.5 sm:px-5 sm:py-3.5 text-xs sm:text-sm font-bold shadow-2xs inline-flex items-center gap-1.5 sm:gap-2 transition-colors whitespace-nowrap"
-                      >
-                        <TokopediaIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white" />
-                        <span>Tokopedia Sahabat MPASI</span>
-                      </a>
+                    {/* Quantitative Marketplace Trust Bar - Positioned directly below CTA buttons to balance with Right Thumbnail Card */}
+                    <div className="grid grid-cols-2 gap-2.5 sm:gap-3 sm:grid-cols-4 rounded-xl sm:rounded-2xl border border-[#5B5147]/12 dark:border-[#FFF8ED]/12 bg-white/90 dark:bg-[#25211D] p-3 sm:p-4 shadow-2xs">
+                      <div>
+                        <p className="font-display text-base sm:text-xl lg:text-2xl font-extrabold tabular-nums text-[#5B5147] dark:text-[#F2C6A0]">
+                          {etalaseProducts.length} Varian
+                        </p>
+                        <p className="text-[10px] sm:text-[11px] font-medium text-[#5B5147]/85 dark:text-[#FFF8ED]/80 mt-0.5">
+                          Kremesan &amp; Abon MPASI
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-display text-base sm:text-xl lg:text-2xl font-extrabold tabular-nums text-[#00AA5B] dark:text-[#4ADE80]">
+                          ★ 5.0 / 5.0
+                        </p>
+                        <p className="text-[10px] sm:text-[11px] font-medium text-[#5B5147]/85 dark:text-[#FFF8ED]/80 mt-0.5">
+                          Rating Tokopedia &amp; TikTok Shop
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-display text-base sm:text-xl lg:text-2xl font-extrabold tabular-nums text-[#FE2C55] dark:text-[#FF6B8B]">
+                          Hemat s.d{' '}
+                          {Math.max(
+                            ...etalaseProducts.map(
+                              (p) => p.discountPercent || 0
+                            ),
+                            47
+                          )}
+                          %
+                        </p>
+                        <p className="text-[10px] sm:text-[11px] font-medium text-[#5B5147]/85 dark:text-[#FFF8ED]/80 mt-0.5">
+                          Promo Diskon &amp; Bisa COD
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-display text-base sm:text-xl lg:text-2xl font-extrabold tabular-nums text-[#5B5147] dark:text-[#F2C6A0]">
+                          Usia 11+ Bln
+                        </p>
+                        <p className="text-[10px] sm:text-[11px] font-medium text-[#5B5147]/85 dark:text-[#FFF8ED]/80 mt-0.5">
+                          Alami Tanpa Pengawet
+                        </p>
+                      </div>
                     </div>
                   </div>
 
                   {/* Right Hero Column: Product Mini-Showcase Grid */}
-                  <div className="lg:col-span-5">
-                    <div className="rounded-2xl sm:rounded-3xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#25211D] p-3 sm:p-5 shadow-xs space-y-3 sm:space-y-4">
+                  <div className="lg:col-span-5 flex flex-col">
+                    <div className="flex-1 flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#25211D] p-3 sm:p-5 shadow-xs space-y-3 sm:space-y-4">
                       <div className="flex items-center justify-between gap-2 border-b border-neutral-100 dark:border-neutral-800 pb-2.5 sm:pb-3">
                         <div className="flex items-center gap-2">
                           <div className="rounded-lg bg-[#111111] p-1.5 text-white">
@@ -1055,42 +1101,6 @@ export default function App() {
                         ))}
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Quantitative Marketplace Trust Bar - compact on phone */}
-                <div className="mt-6 sm:mt-12 grid grid-cols-2 gap-2.5 sm:gap-4 sm:grid-cols-4 rounded-xl sm:rounded-2xl border border-[#5B5147]/12 dark:border-[#FFF8ED]/12 bg-white/90 dark:bg-[#25211D] p-3 sm:p-6">
-                  <div>
-                    <p className="font-display text-lg sm:text-2xl lg:text-3xl font-extrabold tabular-nums text-[#5B5147] dark:text-[#F2C6A0]">
-                      {etalaseProducts.length} Varian
-                    </p>
-                    <p className="text-[10px] sm:text-xs font-medium text-[#5B5147]/85 dark:text-[#FFF8ED]/80 mt-0.5 sm:mt-1">
-                      Kremesan &amp; Abon MPASI
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-display text-lg sm:text-2xl lg:text-3xl font-extrabold tabular-nums text-[#00AA5B] dark:text-[#4ADE80]">
-                      ★ 5.0 / 5.0
-                    </p>
-                    <p className="text-[10px] sm:text-xs font-medium text-[#5B5147]/85 dark:text-[#FFF8ED]/80 mt-0.5 sm:mt-1">
-                      Rating Tokopedia &amp; TikTok Shop
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-display text-lg sm:text-2xl lg:text-3xl font-extrabold tabular-nums text-[#FE2C55] dark:text-[#FF6B8B]">
-                      Hemat s.d 47%
-                    </p>
-                    <p className="text-[10px] sm:text-xs font-medium text-[#5B5147]/85 dark:text-[#FFF8ED]/80 mt-0.5 sm:mt-1">
-                      Promo Gajian Sale &amp; COD
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-display text-lg sm:text-2xl lg:text-3xl font-extrabold tabular-nums text-[#5B5147] dark:text-[#F2C6A0]">
-                      Usia 11+ Bln
-                    </p>
-                    <p className="text-[10px] sm:text-xs font-medium text-[#5B5147]/85 dark:text-[#FFF8ED]/80 mt-0.5 sm:mt-1">
-                      Alami Tanpa Pengawet
-                    </p>
                   </div>
                 </div>
               </div>

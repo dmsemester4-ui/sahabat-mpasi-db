@@ -6,12 +6,12 @@
     "category": "Abon Lauk MPASI",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "50gr & 100gr",
-    "priceIdr": 52900,
-    "priceText": "Rp52.900",
+    "priceIdr": 46900,
+    "priceText": "Rp46.900",
     "originalPriceIdr": 92000,
     "originalPriceText": "Rp92.000",
-    "discountPercent": 43,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 49,
+    "promoText": "Diskon 49% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -34,7 +34,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:44:48.877Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-hati-ayam-probiotik-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738115787119690994-1738115888394896626",
@@ -43,12 +43,12 @@
     "category": "Abon Lauk MPASI",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "50gr & 100gr",
-    "priceIdr": 52900,
-    "priceText": "Rp52.900",
+    "priceIdr": 46900,
+    "priceText": "Rp46.900",
     "originalPriceIdr": 92000,
     "originalPriceText": "Rp92.000",
-    "discountPercent": 43,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 49,
+    "promoText": "Diskon 49% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -71,7 +71,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:44:49.932Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-otak-sapi-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738115740281898226-1738115782151537906",
@@ -80,18 +80,18 @@
     "category": "Kremesan Protein Darat",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 46900,
-    "priceText": "Rp46.900",
+    "priceIdr": 40900,
+    "priceText": "Rp40.900",
     "originalPriceIdr": 87000,
     "originalPriceText": "Rp87.000",
-    "discountPercent": 46,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 53,
+    "promoText": "Diskon 53% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
       "Gratis Ongkir Xtra"
     ],
-    "soldText": "Terlaris",
+    "soldText": "2 terjual",
     "rating": 5,
     "reviewCount": 12,
     "image": "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/ea2a0b54b611484fa9a72c0798b307ca~tplv-aphluv4xwc-resize-jpeg:700:0.jpeg",
@@ -108,7 +108,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:44:51.231Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-hati-ayam-probiotik-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738115519411160306-1738115577645860082",
@@ -117,12 +117,12 @@
     "category": "Kremesan Protein Darat",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 46900,
-    "priceText": "Rp46.900",
+    "priceIdr": 40900,
+    "priceText": "Rp40.900",
     "originalPriceIdr": 87000,
     "originalPriceText": "Rp87.000",
-    "discountPercent": 46,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 53,
+    "promoText": "Diskon 53% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -145,7 +145,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:44:53.604Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-bebek-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738115513251431666-1738115651915056370",
@@ -154,12 +154,12 @@
     "category": "Kremesan Protein Darat",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 46900,
-    "priceText": "Rp46.900",
+    "priceIdr": 40900,
+    "priceText": "Rp40.900",
     "originalPriceIdr": 87000,
     "originalPriceText": "Rp87.000",
-    "discountPercent": 46,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 53,
+    "promoText": "Diskon 53% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -182,7 +182,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:44:54.427Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-ikan-kembung-probiotik-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738115398433735922-1738115400750957810",
@@ -191,12 +191,12 @@
     "category": "Kremesan Ikan & Laut",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 44900,
-    "priceText": "Rp44.900",
+    "priceIdr": 38900,
+    "priceText": "Rp38.900",
     "originalPriceIdr": 85000,
     "originalPriceText": "Rp85.000",
-    "discountPercent": 47,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 54,
+    "promoText": "Diskon 54% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -219,7 +219,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:44:55.240Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-daging-sapi-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738115436942296306-1738115301497603314",
@@ -228,12 +228,12 @@
     "category": "Kremesan Protein Darat",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 46900,
-    "priceText": "Rp46.900",
+    "priceIdr": 40900,
+    "priceText": "Rp40.900",
     "originalPriceIdr": 87000,
     "originalPriceText": "Rp87.000",
-    "discountPercent": 46,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 53,
+    "promoText": "Diskon 53% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -256,7 +256,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:45:38.148Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-ikan-lele-probiotik-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738019106226078962-1738019232087508210",
@@ -265,12 +265,12 @@
     "category": "Kremesan Protein Darat",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 46900,
-    "priceText": "Rp46.900",
+    "priceIdr": 40900,
+    "priceText": "Rp40.900",
     "originalPriceIdr": 87000,
     "originalPriceText": "Rp87.000",
-    "discountPercent": 46,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 53,
+    "promoText": "Diskon 53% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -293,7 +293,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:45:01.461Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-teri-nasi-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738018993515300082-1738019074378335474",
@@ -302,12 +302,12 @@
     "category": "Kremesan Ikan & Laut",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 44900,
-    "priceText": "Rp44.900",
+    "priceIdr": 38900,
+    "priceText": "Rp38.900",
     "originalPriceIdr": 85000,
     "originalPriceText": "Rp85.000",
-    "discountPercent": 47,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 54,
+    "promoText": "Diskon 54% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -330,7 +330,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:45:02.796Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-teri-nasi-80gr-125gr-camilan-mpasi-lauk-pendamping-anak-1738018795331224818-1738018916230268146",
@@ -339,12 +339,12 @@
     "category": "Kremesan Ikan & Laut",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 44900,
-    "priceText": "Rp44.900",
+    "priceIdr": 38900,
+    "priceText": "Rp38.900",
     "originalPriceIdr": 85000,
     "originalPriceText": "Rp85.000",
-    "discountPercent": 47,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 54,
+    "promoText": "Diskon 54% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -367,7 +367,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:45:03.598Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "kremesan-ikan-tenggiri-probiotik-80gr-camilan-mpasi-lauk-pendamping-anak-1738018458770638066-1738018634123609330",
@@ -376,12 +376,12 @@
     "category": "Kremesan Ikan & Laut",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 44900,
-    "priceText": "Rp44.900",
+    "priceIdr": 38900,
+    "priceText": "Rp38.900",
     "originalPriceIdr": 85000,
     "originalPriceText": "Rp85.000",
-    "discountPercent": 47,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 54,
+    "promoText": "Diskon 54% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -404,7 +404,7 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:45:05.151Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   },
   {
     "id": "mpasi-kremesan-otak-sapi-mpasi-balita-1738018136472257778-1738018793095333106",
@@ -413,12 +413,12 @@
     "category": "Kremesan Ikan & Laut",
     "recommendedAge": "Balita 11+ Bulan",
     "weightLabel": "80gr & 125gr",
-    "priceIdr": 44900,
-    "priceText": "Rp44.900",
+    "priceIdr": 38900,
+    "priceText": "Rp38.900",
     "originalPriceIdr": 85000,
     "originalPriceText": "Rp85.000",
-    "discountPercent": 47,
-    "promoText": "Gajian Sale · Bisa COD",
+    "discountPercent": 54,
+    "promoText": "Diskon 54% · Bisa COD",
     "promoBadges": [
       "Gajian Sale",
       "Bisa COD",
@@ -441,6 +441,6 @@
     "storeName": "Sahabat MPASI",
     "storeLocation": "Kab. Boyolali",
     "inStock": true,
-    "syncedAt": "2026-10-23T04:45:06.128Z"
+    "syncedAt": "2026-11-09T11:48:25.510Z"
   }
 ]

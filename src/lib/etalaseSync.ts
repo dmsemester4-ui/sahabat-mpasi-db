@@ -92,17 +92,39 @@ export function readSyncedEtalase(): EtalaseProduct[] {
   return (syncedCatalogJson as EtalaseProduct[]) || [];
 }
 
-export async function readSyncedEtalaseAsync(): Promise<{
+let lastLiveSyncTime = 0;
+const LIVE_SYNC_TTL_MS = 60 * 1000; // Sinkronisasi otomatis setiap 60 detik
+
+export async function readSyncedEtalaseAsync(
+  forceLive = false
+): Promise<{
   products: EtalaseProduct[];
   storageProvider: 'supabase' | 'local-json';
 }> {
+  const now = Date.now();
+  if (forceLive || now - lastLiveSyncTime > LIVE_SYNC_TTL_MS) {
+    lastLiveSyncTime = now;
+    try {
+      const synced = await syncLiveStoreEtalase();
+      if (synced.products.length > 0) {
+        return {
+          products: synced.products,
+          storageProvider: getSupabaseConfig().isConfigured
+            ? 'supabase'
+            : 'local-json',
+        };
+      }
+    } catch {
+      // Lanjut ke cache jika gagal jaringan
+    }
+  }
+
   const supabaseProducts = await fetchProductsFromSupabase();
   if (supabaseProducts && supabaseProducts.length > 0) {
     return { products: supabaseProducts, storageProvider: 'supabase' };
   }
 
   const localProducts = readSyncedEtalase();
-  // Jika Supabase sudah dikonfigurasi tapi tabelnya masih kosong, otomatis seed katalog awal ke Supabase
   if (getSupabaseConfig().isConfigured && localProducts.length > 0) {
     await upsertProductsToSupabase(localProducts);
     return { products: localProducts, storageProvider: 'supabase' };
@@ -205,7 +227,6 @@ export async function fetchSingleMarketplaceProduct(
       .trim();
 
     // 4. Extract all TikTok Shop / Tokopedia OEC CDN images (p16-oec-sg.ibyteimg.com)
-    // Pasti mengambil foto pertama di TikTok Shop / Tokopedia (oecImages[0]), bukan foto varian
     const oecImages = [
       ...new Set(
         [
@@ -226,11 +247,10 @@ export async function fetchSingleMarketplaceProduct(
 
     const title = rawTitle.replace(/&amp;/g, '&').trim();
 
-    // Prioritaskan oecImages[0] / ogImage (foto sampul utama), jangan gunakan foto varian ldProduct.image
     const primaryImage =
       oecImages[0] ||
-      ogImage ||
       fallbackMeta?.image ||
+      ogImage ||
       ldProduct?.image ||
       '';
 
@@ -244,7 +264,7 @@ export async function fetchSingleMarketplaceProduct(
     const priceIdr =
       fallbackMeta?.priceIdr ||
       Number(ldProduct?.offers?.price) ||
-      46900;
+      40900;
 
     const originalPriceIdr =
       fallbackMeta?.originalPriceIdr ||
@@ -269,7 +289,7 @@ export async function fetchSingleMarketplaceProduct(
       fallbackMeta?.weightLabel || (isAbon ? '50gr & 100gr' : '80gr & 125gr');
 
     const promoText =
-      fallbackMeta?.promoText || 'Gajian Sale · Bisa COD';
+      fallbackMeta?.promoText || 'Diskon Spesial · Bisa COD';
 
     return {
       id: slugFromUrl,
@@ -284,7 +304,7 @@ export async function fetchSingleMarketplaceProduct(
       originalPriceText: `Rp${originalPriceIdr.toLocaleString('id-ID')}`,
       discountPercent,
       promoText,
-      promoBadges: ['Gajian Sale', 'Bisa COD', 'Gratis Ongkir Xtra'],
+      promoBadges: ['Promo Spesial', 'Bisa COD', 'Gratis Ongkir Xtra'],
       soldText: fallbackMeta?.soldText || 'Terlaris',
       rating: Number(ldProduct?.aggregateRating?.ratingValue) || 5.0,
       reviewCount: Number(ldProduct?.aggregateRating?.reviewCount) || 12,
@@ -316,18 +336,19 @@ export async function fetchSingleMarketplaceProduct(
 }
 
 /**
- * Sinkronisasi otomatis etalase toko dari Tokopedia / TikTok Shop OEC (https://www.tokopedia.com/sahabat-mpasi)
+ * Ekstraksi kartu produk tahan-perubahan CSS dari HTML halaman toko Tokopedia / TikTok Shop
  */
-export async function syncLiveStoreEtalase(): Promise<{
-  products: EtalaseProduct[];
-  syncedCount: number;
-  syncedAt: string;
+export function parseStorePageCards(html: string): Array<{
+  slug: string;
+  url: string;
+  title: string;
+  priceIdr: number;
+  originalPriceIdr: number;
+  discountPercent: number;
+  promoText: string;
+  soldText: string;
+  cardImage?: string;
 }> {
-  const { products: existing } = await readSyncedEtalaseAsync();
-  const existingBySlug = new Map(existing.map((p) => [p.slug, p]));
-
-  const storePages = ['https://www.tokopedia.com/sahabat-mpasi'];
-
   const discoveredCards: Array<{
     slug: string;
     url: string;
@@ -337,7 +358,99 @@ export async function syncLiveStoreEtalase(): Promise<{
     discountPercent: number;
     promoText: string;
     soldText: string;
+    cardImage?: string;
   }> = [];
+
+  const seenSlugs = new Set<string>();
+  const anchorRegex =
+    /<a[^>]+href="(https:\/\/www\.tokopedia\.com\/sahabat-mpasi\/([^"?/]+))[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
+  let m: RegExpExecArray | null;
+
+  while ((m = anchorRegex.exec(html)) !== null) {
+    const fullUrl = m[1];
+    const slug = m[2];
+    if (slug === 'page' || slug.startsWith('page/') || seenSlugs.has(slug)) {
+      continue;
+    }
+    const body = m[3];
+
+    // Ambil semua teks di dalam kartu produk tanpa tergantung nama class CSS
+    const texts = [...body.matchAll(/>([^<]+)</g)]
+      .map((x) => x[1].replace(/&amp;/g, '&').trim())
+      .filter(Boolean);
+
+    if (texts.length === 0) continue;
+
+    const discountMatch = texts.find((t) => /^\d+%$/.test(t));
+    const rpPrices = texts.filter((t) => /^Rp[\d.]+$/i.test(t));
+    const soldMatch = texts.find((t) => /terjual/i.test(t));
+    const codMatch = texts.find((t) => /COD|Hemat|Bonus|Diskon/i.test(t));
+
+    // Title adalah teks panjang yang bukan harga Rp, bukan %, bukan Bisa COD, bukan terjual
+    const titleCandidate = texts.find(
+      (t) =>
+        t.length > 10 &&
+        !/^Rp[\d.]+$/i.test(t) &&
+        !/^\d+%$/.test(t) &&
+        !/terjual/i.test(t) &&
+        !/^Bisa COD$/i.test(t)
+    );
+
+    if (!titleCandidate) continue;
+
+    const priceIdr =
+      parseInt((rpPrices[0] || '40900').replace(/[^0-9]/g, ''), 10) || 40900;
+    const originalPriceIdr =
+      parseInt(
+        (
+          rpPrices[1] ||
+          (titleCandidate.toLowerCase().includes('abon') ? '92000' : '87000')
+        ).replace(/[^0-9]/g, ''),
+        10
+      ) || 87000;
+    const discountPercent = discountMatch
+      ? parseInt(discountMatch.replace(/[^0-9]/g, ''), 10)
+      : Math.max(
+          1,
+          Math.round(((originalPriceIdr - priceIdr) / originalPriceIdr) * 100)
+        );
+
+    const imgMatch = body.match(
+      /https:\/\/p16-oec-sg\.ibyteimg\.com\/[^"'\s>]+/i
+    )?.[0];
+
+    seenSlugs.add(slug);
+    discoveredCards.push({
+      slug,
+      url: fullUrl,
+      title: titleCandidate,
+      priceIdr,
+      originalPriceIdr,
+      discountPercent,
+      promoText: codMatch ? `Diskon ${discountPercent}% · ${codMatch}` : `Diskon ${discountPercent}% · Bisa COD`,
+      soldText: soldMatch || 'Terlaris',
+      cardImage: imgMatch
+        ? imgMatch.replace(/resize-jpeg:\d+:0/i, 'resize-jpeg:700:0')
+        : undefined,
+    });
+  }
+
+  return discoveredCards;
+}
+
+/**
+ * Sinkronisasi otomatis etalase toko dari Tokopedia / TikTok Shop OEC (https://www.tokopedia.com/sahabat-mpasi)
+ */
+export async function syncLiveStoreEtalase(): Promise<{
+  products: EtalaseProduct[];
+  syncedCount: number;
+  syncedAt: string;
+}> {
+  const existing = readSyncedEtalase();
+  const existingBySlug = new Map(existing.map((p) => [p.slug, p]));
+
+  const storePages = ['https://www.tokopedia.com/sahabat-mpasi'];
+  let discoveredCards: ReturnType<typeof parseStorePageCards> = [];
 
   for (const pageUrl of storePages) {
     try {
@@ -347,56 +460,7 @@ export async function syncLiveStoreEtalase(): Promise<{
       });
       if (!res.ok) continue;
       const html = await res.text();
-      const anchorRegex =
-        /<a[^>]+href="(https:\/\/www\.tokopedia\.com\/sahabat-mpasi\/([^"?/]+))[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
-      let m: RegExpExecArray | null;
-      while ((m = anchorRegex.exec(html)) !== null) {
-        const fullUrl = m[1];
-        const slug = m[2];
-        if (slug === 'page' || slug.startsWith('page/')) {
-          continue;
-        }
-        const body = m[3];
-        const title = body
-          .match(/class="\+tnoqZhn89\+NHUA43BpiJg==">([^<]+)</)?.[1]
-          ?.replace(/&amp;/g, '&')
-          ?.trim();
-        const priceText = body
-          .match(/class="urMOIDHH7I0Iy1Dv2oFaNw==[^"]*">([^<]+)</)?.[1]
-          ?.trim();
-        const origPriceText = body
-          .match(/class="hC1B8wTAoPszbEZj80w6Qw==">([^<]+)</)?.[1]
-          ?.trim();
-        const discountStr = body
-          .match(/class="_7UCYdN8MrOTwg0MKcGu8zg=="[^>]*>(\d+)%</)?.[1]
-          ?.trim();
-        const soldText = body
-          .match(/class="u6SfjDD2WiBlNW7zHmzRhQ==">([^<]+)</)?.[1]
-          ?.trim();
-
-        if (title) {
-          const priceIdr =
-            parseInt((priceText || '46900').replace(/[^0-9]/g, ''), 10) ||
-            46900;
-          const originalPriceIdr =
-            parseInt((origPriceText || '87000').replace(/[^0-9]/g, ''), 10) ||
-            87000;
-          const discountPercent =
-            parseInt(discountStr || '46', 10) ||
-            Math.round(((originalPriceIdr - priceIdr) / originalPriceIdr) * 100);
-
-          discoveredCards.push({
-            slug,
-            url: fullUrl,
-            title,
-            priceIdr,
-            originalPriceIdr,
-            discountPercent,
-            promoText: 'Gajian Sale · Bisa COD',
-            soldText: soldText || 'Terlaris',
-          });
-        }
-      }
+      discoveredCards = parseStorePageCards(html);
     } catch {
       // ignore network error and keep existing cache
     }
@@ -426,8 +490,9 @@ export async function syncLiveStoreEtalase(): Promise<{
         originalPriceText: `Rp${card.originalPriceIdr.toLocaleString('id-ID')}`,
         discountPercent: card.discountPercent,
         promoText: card.promoText,
-        promoBadges: ['Gajian Sale', 'Bisa COD', 'Gratis Ongkir Xtra'],
+        promoBadges: ['Promo Spesial', 'Bisa COD', 'Gratis Ongkir Xtra'],
         soldText: card.soldText || prev.soldText,
+        image: card.cardImage || prev.image,
         storeName: OFFICIAL_STORE_METADATA.storeName,
         storeLocation: OFFICIAL_STORE_METADATA.storeLocation,
         tokopediaUrl: card.url,
@@ -442,6 +507,7 @@ export async function syncLiveStoreEtalase(): Promise<{
         discountPercent: card.discountPercent,
         promoText: card.promoText,
         soldText: card.soldText,
+        image: card.cardImage,
       });
       if (fetched) {
         syncedProducts.push(fetched);
